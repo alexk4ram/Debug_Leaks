@@ -194,13 +194,17 @@ def main():
         sys.exit(1)
 
     if(sys.argv[1] != "-e"):
-        program_name = sys.argv[1]
-        args = sys.argv[2:]
-        check_leaks(program_name, *args)
+        try:
+            program_name = sys.argv[1]
+            args = sys.argv[2:]
+            check_leaks(program_name, *args)
+        except:
+            print(f"{RED} valgrind not found {RESET}")
+            sys.exit(1)
     if(sys.argv[1] == "-e"):
         program_name = sys.argv[2]
         args = sys.argv[3:]
         check_leaks_endles_program(program_name, *args)
-    
+
 if __name__ == "__main__":
     main()
