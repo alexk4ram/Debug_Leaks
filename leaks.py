@@ -4,6 +4,7 @@ import time
 import sys
 import re
 
+# valgrind --leak-check=full --trace-children=yes
 BLUE = '\033[94m'
 GREEN = '\033[92m'
 RED = '\033[91m'
